@@ -1,14 +1,23 @@
-import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React,{useState} from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
 
 export default function Home() {
+    const [text, setText] = useState('');
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Home</Text>
+             {/* <Text style={styles.title}>{text}</Text> */}
             <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
-            <TouchableOpacity onPress={() => alert('Địt con mẹ màyyyyy')} style={styles.button}>
+            <TouchableOpacity onPress={() => alert(`Dcm ${text}`)} style={styles.button}>
                 <Text style={styles.buttonText}>Pick a photo</Text>
             </TouchableOpacity>
+            <TextInput
+                style={{ height: 40 }}
+                placeholder="input your name !"
+                onChangeText={newText => setText(newText)}
+                defaultValue={text}
+            />
+           
         </View>
     );
 }
@@ -34,9 +43,9 @@ const styles = StyleSheet.create({
         backgroundColor: "blue",
         padding: 20,
         borderRadius: 20,
-      },
-      buttonText: {
+    },
+    buttonText: {
         fontSize: 20,
         color: '#fff',
-      }, 
+    },
 });
