@@ -10,7 +10,7 @@ const SignInScreen = () => {
 
     return (
         <View style={styles.root}>
-            <Image source={Logo} style={styles.logo} resizeMode="contain" />
+            <Image source={Logo} style={[styles.logo,{height:height*0,3}]} resizeMode="contain" />
 
         <CustomInput placeholder="User Name" value={username} setValue = {setusername}/>
         <CustomInput placeholder="Password" value={password} setValue= {setpassword}/>
